@@ -2,27 +2,32 @@ const { Schema, model } = require("mongoose");
 const Reaction = require("./Reaction");
 
 // Schema to create Post model
-const Thought = new Schema({
-  thoughtText: {
-    type: String,
-    Required: true,
-    length: [280],
-  },
-  createdAt: {
-    default: Date.now,
-    
+const thoughtSchema = new Schema(
+  {
+    thoughtText: {
+      type: String,
+      required: true,
+      max_length: 280,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    reactions: [Reaction],
   },
   {
     toJSON: {
+      virtuals: true,
       getters: true,
     },
     id: false,
-  },
-  Username: {
-    type: String,
-    Required: true,
-  },
-  reactions: [reactionSchema],
+  }
+);
+
+thoughtSchema.virtual("reactionCount").get(function () {
+  this.reactions.length;
 });
+
+const Thought = model("thought", thoughtSchema);
 
 module.exports = Thought;
