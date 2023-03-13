@@ -10,6 +10,13 @@ const Thought = new Schema({
   },
   createdAt: {
     default: Date.now,
+    
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+    id: false,
   },
   Username: {
     type: String,
