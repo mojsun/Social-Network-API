@@ -36,29 +36,30 @@ module.exports = {
   },
   // add a user friend
   addUserFriend(req, res) {
+    console.log(req.params);
     User.findOneAndUpdate(
-      { _id: req.params.UserId },
-      { $addToSet: { responses: req.body } },
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.body.id } },
       { runValidators: true, new: true }
     )
-      .then((video) =>
-        !User
-          ? res.status(404).json({ message: "No User with this id!" })
-          : res.json(User)
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
   // delete user friend
   deleteUserFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.UserId },
+      { _id: req.params.userId },
       { $pull: { reactions: { responseId: req.params.responseId } } },
       { runValidators: true, new: true }
     )
-      .then((User) =>
-        !User
+      .then((user) =>
+        !user
           ? res.status(404).json({ message: "No user with this id!" })
-          : res.json(User)
+          : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
