@@ -49,7 +49,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // delete user friend
-  DeleteUserFriend(req, res) {
+  deleteUserFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.UserId },
       { $pull: { reactions: { responseId: req.params.responseId } } },
