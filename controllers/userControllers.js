@@ -34,4 +34,32 @@ module.exports = {
     const userId = req.params.userId;
     res.json("single user");
   },
+  // add a user friend
+  addUserFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.UserId },
+      { $addToSet: { responses: req.body } },
+      { runValidators: true, new: true }
+    )
+      .then((video) =>
+        !User
+          ? res.status(404).json({ message: "No User with this id!" })
+          : res.json(User)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
+  // delete user friend
+  DeleteUserFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.UserId },
+      { $pull: { reactions: { responseId: req.params.responseId } } },
+      { runValidators: true, new: true }
+    )
+      .then((User) =>
+        !User
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(User)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
