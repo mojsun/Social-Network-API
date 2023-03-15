@@ -18,7 +18,7 @@ mongoose
 
 ## Credit
 
-I did this project alone. Thank you to ask bc to help me.
+I did this project alone. Thank you to ask bcs learning for helping me.
 
 ## Questions
 
