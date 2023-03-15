@@ -6,6 +6,11 @@ for this project we are going to show you the get all and get single by id and p
 
 see video here:
 
+
+https://user-images.githubusercontent.com/122302309/225198132-e36177ba-c19e-4eb7-a64c-b3073b8943e2.mov
+
+![Screen Shot 2023-03-14 at 10 48 03 AM](https://user-images.githubusercontent.com/122302309/225198157-68a78cad-de2b-4a4c-bf6d-6fb556a54a97.png)
+
 [download and see video](./video/Screen%20Recording%202023-03-14%20at%2011.00.23%20PM.mov)
 
 ## User story
