@@ -4,7 +4,7 @@
 
 for this project we are going to show you the get all and get single by id and post and delete and put for user and thought also we want to post and delete friend ad reaction. please follow the walking through video to see this process.
 
-[label](./video/Screen%20Recording%202023-03-14%20at%2011.00.23%20PM.mov)
+[video](./video/Screen%20Recording%202023-03-14%20at%2011.00.23%20PM.mov)
 
 ## User story
 
